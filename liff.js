@@ -5,18 +5,24 @@ window.onload = function (e) {
         initializeApp(data);
     });
 
-    liff.sendMessages([
-        {
+    // Send message
+    document.getElementById('sendmessagebutton').addEventListener('click', function () {
+        // https://developers.line.me/en/reference/liff/#liffsendmessages()
+        liff.sendMessages([{
             type: 'text',
-            text: 'Hello, World!'
-        }
-    ])
-        .then(() => {
-            console.log('message sent');
-        })
-        .catch((err) => {
-            console.log('error', err);
+            text: "Send text message"
+        }, {
+            type: 'sticker',
+            packageId: '2',
+            stickerId: '144'
+        }]).then(function () {
+            window.alert("Sent");
+        }).catch(function (error) {
+            window.alert("Error sending message: " + error);
         });
+    });
+};
+
 };
 
 function initializeApp(data) {
@@ -25,6 +31,6 @@ function initializeApp(data) {
     document.getElementById('useridfield').textContent = data.context.userId;
     document.getElementById('utouidfield').textContent = data.context.utouId;
     document.getElementById('roomidfield').textContent = data.context.roomId;
-    //document.getElementById('groupidfield').textContent = data.context.groupId;
-    document.getElementById('groupidfield').textContent = data.context.datetime
+    document.getElementById('groupidfield').textContent = data.context.groupId;
 }
+
