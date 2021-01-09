@@ -2,6 +2,7 @@ window.onload = function (e) {
     // initialize and get basic information
     // https://developers.line.me/en/reference/liff/#initialize-liff-app
     liff.init(function (data) {
+        getProfile();
         initializeApp(data);
     });
 
@@ -23,7 +24,28 @@ window.onload = function (e) {
     });
 };
 
-};
+// Get profile and display
+function getProfile() {
+    // https://developers.line.me/en/reference/liff/#liffgetprofile()
+    liff.getProfile().then(function (profile) {
+        document.getElementById('useridprofilefield').textContent = profile.userId;
+        document.getElementById('displaynamefield').textContent = profile.displayName;
+
+        var profilePictureDiv = document.getElementById('profilepicturediv');
+        if (profilePictureDiv.firstElementChild) {
+            profilePictureDiv.removeChild(profilePictureDiv.firstElementChild);
+        }
+        var img = document.createElement('img');
+        img.src = profile.pictureUrl;
+        img.alt = "Profile Picture";
+        img.width = 200;
+        profilePictureDiv.appendChild(img);
+
+        document.getElementById('statusmessagefield').textContent = profile.statusMessage;
+    }).catch(function (error) {
+        window.alert("Error getting profile: " + error);
+    });
+}
 
 function initializeApp(data) {
     document.getElementById('languagefield').textContent = data.language;
