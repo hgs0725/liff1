@@ -12,10 +12,15 @@ window.onload = function (e) {
 
         n = '사슴고양이';
 
-        liff.sendMessages([{
+      liff.sendMessages([{
             type: 'text',
-            text: n
-        }
+            text: "Send text message"
+        }, {
+            type: 'sticker',
+            packageId: ' 11539',
+            stickerId: '52114122'
+        }]).then(function () {
+            window.alert("Sent");      
         ]).then(function () {
             window.alert("Sent");
         }).catch(function (error) {
