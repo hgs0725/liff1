@@ -1,9 +1,27 @@
-window.onload = function (e) {
+llifwindow.onload = function (e) {
     // initialize and get basic information
     // https://developers.line.me/en/reference/liff/#initialize-liff-app
     liff.init(function (data) {
         initializeApp(data);
     });
+};
+
+document.getElementById('sendmessagebutton').addEventListener('click', function () {
+    // https://developers.line.me/en/reference/liff/#liffsendmessages()
+    liff.sendMessages([{
+        type: 'text',
+        text: "Send text message"
+    }, {
+        type: 'sticker',
+        packageId: '2',
+        stickerId: '144'
+    }]).then(function () {
+        window.alert("Sent");
+    }).catch(function (error) {
+        window.alert("Error sending message: " + error);
+    });
+});
+};
 };
 
 function initializeApp(data) {
