@@ -9,14 +9,14 @@ window.onload = function (e) {
     // Send message
     document.getElementById('sendmessagebutton').addEventListener('click', function () {
         // https://developers.line.me/en/reference/liff/#liffsendmessages()
+
+        date_time = birthdaytime.text;
+
         liff.sendMessages([{
             type: 'text',
-            text: "Send text message"
-        }, {
-            type: 'sticker',
-            packageId: '2',
-            stickerId: '144'
-        }]).then(function () {
+            text: date_time
+        }
+        ]).then(function () {
             window.alert("Sent");
         }).catch(function (error) {
             window.alert("Error sending message: " + error);
