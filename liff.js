@@ -10,11 +10,11 @@ window.onload = function (e) {
     document.getElementById('sendmessagebutton').addEventListener('click', function () {
         // https://developers.line.me/en/reference/liff/#liffsendmessages()
 
-        date_time = '사슴고양이';
+        n = '사슴고양이';
 
         liff.sendMessages([{
             type: 'text',
-            text: date_time
+            text: '사슴고양이'
         }
         ]).then(function () {
             window.alert("Sent");
