@@ -4,6 +4,19 @@ window.onload = function (e) {
     liff.init(function (data) {
         initializeApp(data);
     });
+
+    liff.sendMessages([
+        {
+            type: 'text',
+            text: 'Hello, World!'
+        }
+    ])
+        .then(() => {
+            console.log('message sent');
+        })
+        .catch((err) => {
+            console.log('error', err);
+        });
 };
 
 function initializeApp(data) {
