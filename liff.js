@@ -11,10 +11,11 @@ window.onload = function (e) {
         // https://developers.line.me/en/reference/liff/#liffsendmessages()
 
         let n = '사슴고양이';
+        let time = document.getElementById('birthdaytime').value;
 
     liff.sendMessages([{
             type: 'text',
-            text: n
+            text: time
         }, {
             type: 'sticker',
             packageId: '11539',
