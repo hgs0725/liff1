@@ -10,7 +10,7 @@ window.onload = function (e) {
     document.getElementById('sendmessagebutton').addEventListener('click', function () {
         // https://developers.line.me/en/reference/liff/#liffsendmessages()
 
-        date_time = birthdaytime.text;
+        date_time = '사슴고양이';
 
         liff.sendMessages([{
             type: 'text',
