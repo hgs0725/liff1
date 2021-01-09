@@ -10,17 +10,18 @@ window.onload = function (e) {
     document.getElementById('sendmessagebutton').addEventListener('click', function () {
         // https://developers.line.me/en/reference/liff/#liffsendmessages()
 
-        let n = '사슴고양이';
-        let time = document.getElementById('birthdaytime').value;
+        let date_time = document.getElementById('birthdaytime').textContent;
+        let userid = data.context.userId;
 
-    liff.sendMessages([{
+        liff.sendMessages([{
             type: 'text',
-            text: time
-        }, {
-            type: 'sticker',
-            packageId: '11539',
-            stickerId: '52114122'
-        }]).then(function () {
+            text: date_time
+        },
+        {
+            type: 'text',
+            text : userid
+        }
+        ]).then(function () {
             window.alert("Sent");
         }).catch(function (error) {
             window.alert("Error sending message: " + error);
@@ -28,6 +29,28 @@ window.onload = function (e) {
     });
 };
 
+// Get profile and display
+function getProfile() {
+    // https://developers.line.me/en/reference/liff/#liffgetprofile()
+    liff.getProfile().then(function (profile) {
+        document.getElementById('useridprofilefield').textContent = profile.userId;
+        document.getElementById('displaynamefield').textContent = profile.displayName;
+
+        var profilePictureDiv = document.getElementById('profilepicturediv');
+        if (profilePictureDiv.firstElementChild) {
+            profilePictureDiv.removeChild(profilePictureDiv.firstElementChild);
+        }
+        var img = document.createElement('img');
+        img.src = profile.pictureUrl;
+        img.alt = "Profile Picture";
+        img.width = 200;
+        profilePictureDiv.appendChild(img);
+
+        document.getElementById('statusmessagefield').textContent = profile.statusMessage;
+    }).catch(function (error) {
+        window.alert("Error getting profile: " + error);
+    });
+}
 
 function initializeApp(data) {
     document.getElementById('languagefield').textContent = data.language;
