@@ -1,6 +1,9 @@
 window.onload = function (e) {
     // initialize and get basic information
     // https://developers.line.me/en/reference/liff/#initialize-liff-app
+    
+     window.alert("0.1");
+    
     liff.init(function (data) {
         getProfile();
         initializeApp(data);
@@ -14,7 +17,7 @@ window.onload = function (e) {
       
         liff.sendMessages([{
             type: 'text',
-            text: userid + '&' + date_time
+            text: date_time
         }
         ]).then(function () {
             window.alert("Sent");
