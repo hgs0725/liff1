@@ -5,14 +5,13 @@ window.onload = function (e) {
      window.alert("0.3");
     
     liff.init(function (data) {
-        getProfile();
         initializeApp(data);
     });
 
     // Send message
       document.getElementById('sendmessagebutton').addEventListener('click', function () {
         // https://developers.line.me/en/reference/liff/#liffsendmessages()
-        let date_time = document.getElementById('birthdaytime').textContent;
+        let date_time = document.getElementById('testtime').textContent;
         let userid = data.context.userId;
         liff.sendMessages([{
             type: 'text',
