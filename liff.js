@@ -15,11 +15,9 @@ window.onload = function (e) {
         liff.sendMessages([{
             type: 'text',
             text: userid
-        }, {
-            type: 'text',
             text: date_time
-        
-        }]).then(function () {
+        }
+        ]).then(function () {
             window.alert("Sent");
         }).catch(function (error) {
             window.alert("Error sending message: " + error);
