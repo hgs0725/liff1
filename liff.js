@@ -14,8 +14,7 @@ window.onload = function (e) {
       
         liff.sendMessages([{
             type: 'text',
-            text: userid
-            text: date_time
+            text: userid + '&' + date_time
         }
         ]).then(function () {
             window.alert("Sent");
