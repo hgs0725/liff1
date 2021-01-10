@@ -7,21 +7,19 @@ window.onload = function (e) {
     });
 
     // Send message
-    document.getElementById('sendmessagebutton').addEventListener('click', function () {
-        // https://developers.line.me/en/reference/liff/#liffsendmessages()
-
+  document.getElementById('sendmessagebutton').addEventListener('click', function () {
+        // https://developers.line.me/en/reference/liff/#liffsendmessages()    
         let date_time = document.getElementById('birthdaytime').textContent;
         let userid = data.context.userId;
-
+      
         liff.sendMessages([{
             type: 'text',
-            text: date_time
-        },
-        {
+            text: userid
+        }, {
             type: 'text',
-            text : userid
-        }
-        ]).then(function () {
+            text: date_time
+        
+        }]).then(function () {
             window.alert("Sent");
         }).catch(function (error) {
             window.alert("Error sending message: " + error);
