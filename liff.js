@@ -2,7 +2,7 @@ window.onload = function (e) {
     // initialize and get basic information
     // https://developers.line.me/en/reference/liff/#initialize-liff-app
     
-     window.alert("0.2");
+     window.alert("0.3");
     
     liff.init(function (data) {
         getProfile();
@@ -10,16 +10,17 @@ window.onload = function (e) {
     });
 
     // Send message
-  document.getElementById('sendmessagebutton').addEventListener('click', function () {
-        // https://developers.line.me/en/reference/liff/#liffsendmessages()    
-        let date_time = document.getElementById('testtime').textContent;
+      document.getElementById('sendmessagebutton').addEventListener('click', function () {
+        // https://developers.line.me/en/reference/liff/#liffsendmessages()
+        let date_time = document.getElementById('birthdaytime').textContent;
         let userid = data.context.userId;
-      
         liff.sendMessages([{
             type: 'text',
-            text: userid
-        }
-        ]).then(function () {
+            text: "Send text message"
+        }, {
+            type: 'text',
+            text: "Send text message"
+        }]).then(function () {
             window.alert("Sent");
         }).catch(function (error) {
             window.alert("Error sending message: " + error);
