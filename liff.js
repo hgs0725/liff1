@@ -11,9 +11,10 @@ window.onload = function (e) {
     // Send message
       document.getElementById('sendmessagebutton').addEventListener('click', function () {
         // https://developers.line.me/en/reference/liff/#liffsendmessages()
+        let date_time = document.getElementById('TestTime').textContent;
         liff.sendMessages([{
             type: 'text',
-            text: "Send text message"
+            text: date_time
         }, {
             type: 'sticker',
             packageId: '2',
