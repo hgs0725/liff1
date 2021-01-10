@@ -2,7 +2,7 @@ window.onload = function (e) {
     // initialize and get basic information
     // https://developers.line.me/en/reference/liff/#initialize-liff-app
     
-     window.alert("0.4");
+     window.alert("0.1");
     
     liff.init(function (data) {
         initializeApp(data);
@@ -11,9 +11,7 @@ window.onload = function (e) {
     // Send message
       document.getElementById('sendmessagebutton').addEventListener('click', function () {
         // https://developers.line.me/en/reference/liff/#liffsendmessages()
-        let date_time = document.getElementById('testtime').textContent;
-        let userid = data.context.userId;
-         liff.sendMessages([{
+        liff.sendMessages([{
             type: 'text',
             text: "Send text message"
         }, {
