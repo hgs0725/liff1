@@ -1,25 +1,68 @@
 window.onload = function (e) {
     // initialize and get basic information
     // https://developers.line.me/en/reference/liff/#initialize-liff-app
-    
-     window.alert("0.32");
-    
+
+    window.alert("0.1");
+
     liff.init(function (data) {
         initializeApp(data);
     });
 
     // Send message
-      document.getElementById('sendmessagebutton').addEventListener('click', function () {
-        // https://developers.line.me/en/reference/liff/#liffsendmessages()
-        let date_time = document.getElementById('TestTime').value
-        liff.sendMessages([{
-            type: 'text',
-            text: date_time
-        }]).then(function () {
-            window.alert("Sent");
-        }).catch(function (error) {
-            window.alert("Error sending message: " + error);
-        });
+    document.getElementById('a1').addEventListener('click', function () {
+
+        if (document.getElementById('q1').value == 2) {
+            liff.sendMessages([{
+                type: 'text',
+                text: '1번 정답'
+            }]).then(function () {
+                //window.alert("Sent");
+            }).catch(function (error) {
+                window.alert("Error sending message: " + error);
+            });
+        }
+        else {
+            liff.sendMessages([{
+                type: 'text',
+                text: '1번 오답'
+            }]).then(function () {
+                //window.alert("Sent");
+            }).catch(function (error) {
+                window.alert("Error sending message: " + error);
+            });
+        }
+    
+    });
+
+    document.getElementById('a2').addEventListener('click', function () {
+
+        if (!$(':input:checkbox[id=test]:checked').val()) {
+            alert("1개 이상 선택해 주세요.");
+            return;
+        }
+
+        if ($(":input:radio[name='test']:checked").val() == 'HTML') {
+            liff.sendMessages([{
+                type: 'text',
+                text: '2번 정답'
+            }]).then(function () {
+                //window.alert("Sent");
+            }).catch(function (error) {
+                window.alert("Error sending message: " + error);
+            });
+        }
+        else {
+            liff.sendMessages([{
+                type: 'text',
+                text: '2번 오답'
+            }]).then(function () {
+                //window.alert("Sent");
+            }).catch(function (error) {
+                window.alert("Error sending message: " + error);
+            });
+        }
+
+
     });
 };
 
@@ -32,4 +75,3 @@ function initializeApp(data) {
     document.getElementById('roomidfield').textContent = data.context.roomId;
     document.getElementById('groupidfield').textContent = data.context.groupId;
 }
-
