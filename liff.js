@@ -14,7 +14,7 @@ window.onload = function (e) {
         if (document.getElementById('q1').value == 2) {
             liff.sendMessages([{
                 type: 'text',
-                text: "1번 정답"
+                text: '1번 정답'
             }]).then(function () {
                 //window.alert("Sent");
             }).catch(function (error) {
@@ -24,7 +24,7 @@ window.onload = function (e) {
         else {
             liff.sendMessages([{
                 type: 'text',
-                text: "1번 오답"
+                text: '1번 오답'
             }]).then(function () {
                 //window.alert("Sent");
             }).catch(function (error) {
