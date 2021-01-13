@@ -14,7 +14,7 @@ window.onload = function (e) {
         if (document.getElementById('q1').value == 2) {
             liff.sendMessages([{
                 type: 'text',
-                text: '1¹ø Á¤´ä'
+                text: "1ë²ˆ ì •ë‹µ"
             }]).then(function () {
                 //window.alert("Sent");
             }).catch(function (error) {
@@ -24,7 +24,7 @@ window.onload = function (e) {
         else {
             liff.sendMessages([{
                 type: 'text',
-                text: '1¹ø ¿À´ä'
+                text: "1ë²ˆ ì˜¤ë‹µ"
             }]).then(function () {
                 //window.alert("Sent");
             }).catch(function (error) {
@@ -34,36 +34,8 @@ window.onload = function (e) {
     
     });
 
-    document.getElementById('a2').addEventListener('click', function () {
+ 
 
-        if (!$(':input:checkbox[id=test]:checked').val()) {
-            alert("1°³ ÀÌ»ó ¼±ÅÃÇØ ÁÖ¼¼¿ä.");
-            return;
-        }
-
-        if ($(":input:radio[name='test']:checked").val() == 'HTML') {
-            liff.sendMessages([{
-                type: 'text',
-                text: '2¹ø Á¤´ä'
-            }]).then(function () {
-                //window.alert("Sent");
-            }).catch(function (error) {
-                window.alert("Error sending message: " + error);
-            });
-        }
-        else {
-            liff.sendMessages([{
-                type: 'text',
-                text: '2¹ø ¿À´ä'
-            }]).then(function () {
-                //window.alert("Sent");
-            }).catch(function (error) {
-                window.alert("Error sending message: " + error);
-            });
-        }
-
-
-    });
 };
 
 
